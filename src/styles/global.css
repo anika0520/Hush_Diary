@@ -1,0 +1,123 @@
+/* ============================================================
+   HUSHDIARY — Global Styles
+   ============================================================ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInR {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse3 {
+  0%,100% { box-shadow: 0 0 0 0 rgba(196,154,108,0.5); }
+  70%      { box-shadow: 0 0 0 14px rgba(196,154,108,0); }
+}
+@keyframes recordGlow {
+  0%,100% {
+    box-shadow: 0 0 0 0 rgba(220,80,80,0.6), 0 4px 24px rgba(0,0,0,0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(220,80,80,0.1), 0 0 0 28px rgba(220,80,80,0.03), 0 4px 24px rgba(0,0,0,0.6);
+  }
+}
+@keyframes rippleOut {
+  0%   { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes filmRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes grainDrift {
+  0%,100% { transform: translate(0, 0); }
+  50%     { transform: translate(-2px, -1px); }
+}
+@keyframes orbFloat {
+  0%,100% { transform: scale(1) translateY(0); }
+  50%     { transform: scale(1.04) translateY(-3px); }
+}
+@keyframes textFlicker {
+  0%,89%,91%,100% { opacity: 1; }
+  90%             { opacity: .7; }
+}
+@keyframes cardReveal {
+  from { opacity: 0; transform: rotate(var(--tilt, 0deg)) translateY(20px) scale(.95); }
+  to   { opacity: 1; transform: rotate(var(--tilt, 0deg)) translateY(0) scale(1); }
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(.91) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes toastSlide {
+  from { opacity: 0; transform: translateX(-50%) translateY(16px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes particleDrift {
+  0%,100% { transform: translateY(0) rotate(0deg); opacity: .06; }
+  50%     { transform: translateY(-36px) rotate(180deg); opacity: .13; }
+}
+@keyframes progressBar {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── Grain overlay ── */
+.grain-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.09'/%3E%3C/svg%3E");
+  opacity: .42;
+  mix-blend-mode: multiply;
+  animation: grainDrift 9s ease-in-out infinite;
+}
+.vignette-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 42%, rgba(10,7,3,.55) 100%);
+}
+
+/* ── Utility animations ── */
+.page-anim  { animation: fadeIn .6s ease both; }
+
+/* ── Scrollbar ── */
+.scroll-y { overflow-y: auto; }
+.scroll-y::-webkit-scrollbar { width: 4px; }
+.scroll-y::-webkit-scrollbar-thumb { background: rgba(196,154,108,.25); border-radius: 2px; }
+
+/* ── Interactive ── */
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.07) translateY(-8px) !important;
+  z-index: 50;
+  box-shadow: 0 32px 80px rgba(0,0,0,.65) !important;
+}
+.nav-btn:hover  { background: rgba(196,154,108,.08) !important; }
+.mood-chip:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.tl-card:hover  { transform: translateX(5px); border-color: rgba(196,154,108,.45) !important; }
+.stat-c:hover   { transform: translateY(-4px) !important; box-shadow: 0 16px 40px rgba(0,0,0,.5) !important; }
+.btn-p:active   { transform: scale(.97) !important; }
+.photo-drop:hover {
+  border-color: rgba(196,154,108,.55) !important;
+  background: rgba(196,154,108,.04) !important;
+}
+
+/* ── Reset form elements ── */
+input, textarea { -webkit-appearance: none; outline: none; }
+audio { width: 100%; border-radius: 2px; }
+button { font-family: inherit; }
