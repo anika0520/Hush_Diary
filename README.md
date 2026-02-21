@@ -1,3 +1,4 @@
+Live- https://hushdiary.vercel.app/
 # 🎙 HushDiary — A Gallery of Memories
 
 Some memories are too fragile for ink.
@@ -149,3 +150,5 @@ Microphone access requires HTTPS in production (localhost works for development)
 - **Click outside** the modal also closes it
 - Recordings auto-stop after **5 minutes**
 - Photos are stored as base64 data URLs
+
+✨ Feel free to fork this repository and submit a pull request — contributions are always welcome!
